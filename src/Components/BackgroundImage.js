@@ -1,7 +1,25 @@
 import React from "react";
+import styled from "styled-components";
 
 const BackgroundImage = () => {
-  return <div>BackgroundImage</div>;
+  return (
+    <BackgroundContainer>
+      <img
+        src="https://res.cloudinary.com/ehizeex-shop/image/upload/v1668265236/NetflixApp/netflix-reuse-official_ntcjl2_wtrhhh.jpg"
+        alt="background"
+      />
+    </BackgroundContainer>
+  );
 };
+
+const BackgroundContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  img {
+    height: 100vh;
+    width: 100vw;
+  }
+  overflow: hidden;
+`;
 
 export default BackgroundImage;

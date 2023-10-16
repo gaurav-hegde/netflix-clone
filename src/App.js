@@ -6,6 +6,7 @@ import Player from "./Pages/Player";
 import TvShow from "./Pages/TvShow";
 import Netflix from "./Pages/Netflix";
 import MoviePage from "./Pages/MoviePage";
+import Header from "./Components/Header";
 
 function App() {
   return (
