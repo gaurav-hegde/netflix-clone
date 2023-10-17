@@ -5,6 +5,7 @@ import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import TopNav from "../Components/TopNav";
+import Card from "../Components/Card";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +47,7 @@ const Netflix = () => {
           </div>
         </div>
       </div>
+      <Card />
     </HeroContainer>
   );
 };
@@ -56,14 +58,13 @@ const HeroContainer = styled.div`
   }
   .background-image {
     filter: brightness(45%);
-  }
-  img {
+
     width: 100%;
     height: 70%;
   }
   .container {
     position: absolute;
-    bottom: 10rem;
+    top: 20rem;
     .title {
       h1 {
         margin-left: 5rem;
