@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import TopNav from "../Components/TopNav";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+
   window.onscroll = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);
     return () => (window.onscroll = null);
@@ -32,7 +35,7 @@ const Netflix = () => {
             </p>
           </div>
           <div className="buttons">
-            <button className="playBtn">
+            <button onClick={() => navigate("/player")} className="playBtn">
               <FaPlay />
               Play
             </button>
