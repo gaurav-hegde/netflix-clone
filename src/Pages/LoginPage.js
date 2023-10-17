@@ -1,9 +1,30 @@
 import React, { useState } from "react";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
 import Header from "../Components/Header";
 import BackgroundImage from "../Components/BackgroundImage";
+import { firebaseAuth } from "../utils/firebase-config";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (currentUser) navigate("/");
+  });
+
   return (
     <Wrapper>
       <BackgroundImage />
@@ -15,9 +36,19 @@ const LoginPage = () => {
               <h1>Login</h1>
             </div>
             <div className="container">
-              <input type="text" placeholder="Email Address" />
-              <input type="password" placeholder="Password" />
-              <button>Log In</button>
+              <input
+                type="text"
+                placeholder="Email Address"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              <button onClick={handleLogin}>Log In</button>
             </div>
           </div>
         </div>
