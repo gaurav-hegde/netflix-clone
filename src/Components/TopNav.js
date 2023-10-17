@@ -72,6 +72,7 @@ const NavContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 2rem;
+      margin-left: 5rem;
     }
     .logo {
       display: flex;
@@ -81,7 +82,6 @@ const NavContainer = styled.div`
     img {
       width: 10rem;
       height: 3rem;
-      margin: 1rem;
     }
     .links {
       display: flex;
@@ -98,13 +98,13 @@ const NavContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 1rem;
+      margin-right: 1rem;
       button {
         background-color: red;
         border: none;
         cursor: pointer;
         border-radius: 50%;
         padding: 0.1rem;
-        margin: 1rem;
       }
       &:focus {
         outline: none;
