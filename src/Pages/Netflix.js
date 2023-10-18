@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import TopNav from "../Components/TopNav";
 import Card from "../Components/Card";
-import { getGenres } from "../store";
+import { fetchMovies, getGenres } from "../store";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
   const navigate = useNavigate();
+
+  const movies = useSelector((state) => state.netflix.movies);
+  const generesLoaded = useSelector((state) => state.netflix.generesLoaded);
 
   const dispatch = useDispatch();
 
@@ -19,11 +24,16 @@ const Netflix = () => {
     dispatch(getGenres());
   }, []);
 
+  useEffect(() => {
+    if (generesLoaded) {
+      dispatch(fetchMovies({ type: "all" }));
+    }
+  });
+
   window.onscroll = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);
     return () => (window.onscroll = null);
   };
-  console.log(isScrolled);
 
   return (
     <HeroContainer>
@@ -59,7 +69,6 @@ const Netflix = () => {
     </HeroContainer>
   );
 };
-
 const HeroContainer = styled.div`
   .hero {
     position: relative;
@@ -125,5 +134,4 @@ const HeroContainer = styled.div`
     }
   }
 `;
-
 export default Netflix;
