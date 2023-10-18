@@ -4,12 +4,16 @@ import styled from "styled-components";
 
 const MovieSlider = ({ data, title }) => {
   return (
-    <div className="slider">
-      {data.map((movie, index) => {
-        return <Card movieData={movie} index={index} key={movie.id} />;
-      })}
-    </div>
+    <Container>
+      <div className="slider">
+        {data.map((movie, index) => {
+          return <Card movieData={movie} index={index} key={movie.id} />;
+        })}
+      </div>
+    </Container>
   );
 };
+
+const Container = styled.div``;
 
 export default MovieSlider;
