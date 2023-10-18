@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import TopNav from "../Components/TopNav";
-import Card from "../Components/Card";
 import { fetchMovies, getGenres } from "../store";
+import SliderContainer from "../Components/SliderContainer";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,7 +65,7 @@ const Netflix = () => {
           </div>
         </div>
       </div>
-      <Card />
+      <SliderContainer movies={movies} />
     </HeroContainer>
   );
 };
