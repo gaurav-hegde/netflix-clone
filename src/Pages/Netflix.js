@@ -22,7 +22,7 @@ const Netflix = () => {
 
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  });
 
   useEffect(() => {
     if (generesLoaded) {
