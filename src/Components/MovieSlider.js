@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import styled from "styled-components";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 export default React.memo(function MovieSlider({ data, title }) {
+  const [controlVisibility, setControlVisibility] = useState(false);
+
   return (
-    <Container>
+    <Container
+      controlVisibility={controlVisibility}
+      onMouseEnter={() => setControlVisibility(true)}
+      onMouseLeave={() => setControlVisibility(false)}
+    >
       <h1>{title}</h1>
       <div className="wrapper">
+        <div
+          className={`slider-action left ${!controlVisibility ? "none" : ""}`}
+        >
+          <AiOutlineLeft />
+        </div>
         <div className="slider">
           {data.map((movie, index) => {
             return <Card movieData={movie} index={index} key={movie.id} />;
           })}
+        </div>
+        <div
+          className={`slider-action right ${!controlVisibility ? "none" : ""}`}
+        >
+          <AiOutlineRight />
         </div>
       </div>
     </Container>
@@ -35,6 +52,32 @@ const Container = styled.div`
       transform: translate(0px);
       transition: 1s ease-in-out;
       margin-left: 5px;
+    }
+    .slider-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 99;
+      height: 100%;
+      top: 2rem;
+      bottom: 0;
+      width: 3rem;
+      transition: 1s ease-in-out;
+      svg {
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+      }
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      right: 0;
+    }
+    .none {
+      display: none;
     }
   }
 `;
