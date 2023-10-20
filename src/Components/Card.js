@@ -7,7 +7,7 @@ import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 
-const Card = ({ movieData }) => {
+export default React.memo(function Card({ movieData }) {
   const [onHovered, setOnHovered] = useState(false);
   const navigate = useNavigate();
 
@@ -66,11 +66,10 @@ const Card = ({ movieData }) => {
       )}
     </CardContainer>
   );
-};
+});
 
 const CardContainer = styled.div`
-  margin-top: -5rem;
-  margin-left: 5rem;
+  margin-left: 2rem;
   max-width: 300px;
   width: 300px;
   height: 100%;
@@ -160,5 +159,3 @@ const CardContainer = styled.div`
     }
   }
 `;
-
-export default Card;
