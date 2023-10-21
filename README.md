@@ -7,5 +7,5 @@ I also added a straightforward login system using Google's Firebase. This means 
 API used : TMDB API from https://www.themoviedb.org/
 
 ## Deployment
-
-https://netflix-clone-g1obzjd5c-gaurav-hegdes-projects.vercel.app/login
+This project is hosted on Vercel.
+https://netflix-clone-jet-tau.vercel.app/
