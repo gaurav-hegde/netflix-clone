@@ -110,11 +110,9 @@ const Container = styled.div`
   h1 {
     padding: 0 25rem;
   }
-  h4 {
-    margin-top: -1.5rem;
-  }
+  h4,
   h6 {
-    margin-top: -1.5rem;
+    padding: 1rem 20rem;
   }
   .form {
     display: grid;
